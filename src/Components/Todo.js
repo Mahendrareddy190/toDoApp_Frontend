@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Todo.css";
 import swal from "sweetalert";
 import Taskitems from "./Taskitems";
+import Navbar from "./Navbar";
+
 const Todo = () => {
   const [Value, setValue] = useState({
     id: "",
@@ -11,6 +13,7 @@ const Todo = () => {
   });
   const [get_Local, setLocal] = useState([]);
   const [cart, setCart] = useState([]);
+  const [search, setSearch] = useState("");
   const { task } = Value;
   const handlechange = (task) => (event) => {
     setValue({
@@ -53,12 +56,9 @@ const Todo = () => {
   }, [cart]);
 
   return (
-    <div className="container-fluid ">
-      {/* <img
-        src="https://static.vecteezy.com/system/resources/previews/005/374/380/original/illustration-graphic-cartoon-character-of-job-interview-vector.jpg"
-        alt="work"
-      /> */}
-      <div className="row mt-5">
+    <div className="container-fluid p-0 m-0">
+      <Navbar setSearch={setSearch} Search={search} />
+      <div className="row todo">
         <div className="col col-xl-12 col-lg-12 col-md-12 col-sm input-group">
           <form className="input-group  w-75 mb-3">
             <input
@@ -74,7 +74,7 @@ const Todo = () => {
           </form>
         </div>
         <section>
-          <Taskitems todo={get_Local} setCart={setCart} />
+          <Taskitems todo={get_Local} setCart={setCart} Search={search} />
         </section>
       </div>
     </div>
