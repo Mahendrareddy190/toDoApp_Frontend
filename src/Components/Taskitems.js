@@ -67,7 +67,7 @@ const Taskitems = ({ todo, setCart, Search }) => {
     <div className="container p-0">
       <div className="row ml-5">
         <div className=" col-12 col-lg-12 col-sm text-dark">
-          <div className="status">
+          <div className="status p-3">
             <span>
               Done
               <sup>{done}</sup>
@@ -95,25 +95,27 @@ const Taskitems = ({ todo, setCart, Search }) => {
               </tbody>
             </table>
           ) : (
-            <table className="table table-success table-striped table-hover table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">Task</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                {todo
-                  .filter((value) => {
-                    if (Search === " ") {
-                      return value;
-                    } else if (value.task.includes(Search.toLowerCase())) {
-                      return value;
-                    }
-                  })
-                  .map((value) =>
-                    value.length !== 0 ? (
+            <div className="p-3">
+              <table className="table table-success table-striped table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {todo
+                    .filter((value) => {
+                      if (Search === " ") {
+                        return value;
+                      } else if (
+                        value.task.toLowerCase().includes(Search.toLowerCase())
+                      ) {
+                        return value;
+                      }
+                    })
+                    .map((value) => (
                       <tr key={value.id}>
                         <td>
                           <input
@@ -140,27 +142,10 @@ const Taskitems = ({ todo, setCart, Search }) => {
                           </button>
                         </td>
                       </tr>
-                    ) : (
-                      <table className="table table-success table-striped text-center table-hover table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Task</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Delete</th>
-                          </tr>
-                        </thead>
-                        <tbody style={{ height: "100px" }}>
-                          <tr>
-                            <td colSpan={3} className="font-monospace  pt-4">
-                              No tasks available
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    )
-                  )}
-              </tbody>
-            </table>
+                    ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </div>

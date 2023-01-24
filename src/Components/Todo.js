@@ -25,7 +25,7 @@ const Todo = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     setCart(...[Value]);
-    if (Value.task !== "") {
+    if (Value.task.trim().length !== 0) {
       if (JSON.parse(localStorage.getItem("task")).length) {
         let Old_tasks = [
           ...[Value],
@@ -56,8 +56,10 @@ const Todo = () => {
   }, [cart]);
 
   return (
-    <div className="container-fluid p-0 m-0">
-      <Navbar setSearch={setSearch} Search={search} />
+    <div className="container-fluid p-0 m-0 ">
+      <div>
+        <Navbar setSearch={setSearch} Search={search} />
+      </div>
       <div className="row todo">
         <div className="col col-xl-12 col-lg-12 col-md-12 col-sm input-group">
           <form className="input-group  w-75 mb-3">
@@ -73,7 +75,7 @@ const Todo = () => {
             </button>
           </form>
         </div>
-        <section>
+        <section className="p-0">
           <Taskitems todo={get_Local} setCart={setCart} Search={search} />
         </section>
       </div>

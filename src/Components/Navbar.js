@@ -1,14 +1,16 @@
 import React from "react";
 import "./Navbar.css";
-import img from "../images/1.png";
+import img from "../images/1.PNG";
 const Navbar = ({ setSearch, Search }) => {
   return (
     <nav className="navbar">
-      <div className="container-fluid">
-        <a href="/" className="navbar-brand">
-          <img src={img} width="120px" height="50px" alt="todo" />
-        </a>
-        <form role="search">
+      <div className="main">
+        <div className="px-1">
+          <a href="/" className="navbar-brand">
+            <img src={img} width="120px" height="50px" alt="todo" />
+          </a>
+        </div>
+        <div className="search">
           <input
             className="form-control "
             type="search"
@@ -17,7 +19,7 @@ const Navbar = ({ setSearch, Search }) => {
             value={Search}
             onChange={(event) => setSearch(event.target.value)}
           />
-        </form>
+        </div>
       </div>
     </nav>
   );

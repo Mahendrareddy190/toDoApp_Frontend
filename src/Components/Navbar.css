@@ -1,26 +1,61 @@
 * {
+  top: 0px;
   margin: 0px;
   padding: 0px;
 }
 .navbar {
-  background-color: rgb(254, 253, 253);
+  background-color: #7952b3;
   width: 100%;
   height: 11%;
   position: fixed;
   box-shadow: 3px 3px 10px rgba(231, 230, 230, 0.8);
   margin: 0 0 100px 0;
+  z-index: 1000;
 }
 
 @media only screen and (max-width: 600px) {
   .navbar {
-    background-color: rgb(254, 253, 253);
+    background-color: #7952b3;
     width: 100%;
     height: 12%;
     position: fixed;
     box-shadow: 3px 3px 10px rgba(231, 230, 230, 0.8);
-    margin: 0 0 100px 0;
+    margin: 0 0 120px 0;
   }
-  .form-control {
-    width: 120px;
+  div.search {
+    float: right;
+    position: absolute;
+    right: 0;
+    width: 180px;
   }
+}
+@media only screen and (max-width: 338px) {
+  .navbar {
+    background-color: #7952b3;
+    width: 100%;
+    height: 12%;
+    position: fixed;
+    box-shadow: 3px 3px 10px rgba(231, 230, 230, 0.8);
+    margin: 0 0 120px 0;
+  }
+  div.search {
+    float: right;
+    position: absolute;
+    right: 0;
+    width: 140px;
+  }
+}
+.main {
+  display: flex;
+  align-items: center;
+}
+div.search {
+  float: right;
+  position: absolute;
+  right: 10px;
+  top: auto;
+}
+
+img {
+  padding-left: 10px;
 }
